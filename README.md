@@ -1,20 +1,20 @@
 # GeoJSON
 
-The [GeoJSON](https://tools.ietf.org/html/rfc7946) Format for Crystal
-
 [![Build Status](https://travis-ci.org/geocrystal/geo_json.svg?branch=master)](https://travis-ci.org/geocrystal/geo_json)
+
+The [GeoJSON](https://tools.ietf.org/html/rfc7946) Format for Crystal
 
 ## GeoJSON types
 
-- [ ] Point
+- [x] Point
 - [ ] MultiPoint
 - [ ] LineString
 - [ ] MultiLineString
 - [ ] Polygon
 - [ ] MultiPolygon
 - [ ] GeometryCollection
-- [ ] Feature
-- [ ] FeatureCollection
+- [x] Feature
+- [x] FeatureCollection
 
 ## Installation
 

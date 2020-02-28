@@ -1,0 +1,9 @@
+name: geo_json
+version: 0.0.1
+
+authors:
+  - Anton Maminov <anton.maminov@gmail.com>
+
+crystal: 0.33.0
+
+license: MIT

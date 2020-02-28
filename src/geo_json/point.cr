@@ -1,4 +1,5 @@
 module GeoJSON
+  # https://tools.ietf.org/html/rfc7946#section-3.1.2
   class Point < Object
     getter type : String = "Point"
 

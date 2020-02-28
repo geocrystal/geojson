@@ -11,7 +11,6 @@ describe GeoJSON::FeatureCollection do
       feature_collection.should be_a(GeoJSON::FeatureCollection)
       feature_collection.features.first.should eq(feature1)
     end
-
   end
 
   describe "json object" do

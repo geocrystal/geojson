@@ -1,8 +1,8 @@
 module GeoJSON
   class Point < Object
-    property type : String = "Point"
+    getter type : String = "Point"
 
-    property coordinates : Coordinates
+    getter coordinates : Coordinates
 
     def initialize(*, longitude, latitude)
       @coordinates = Coordinates.new([longitude, latitude])

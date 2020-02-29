@@ -18,15 +18,15 @@ The [GeoJSON](https://tools.ietf.org/html/rfc7946) Format for Crystal
 
 ## Installation
 
-1. Add the dependency to your `shard.yml`:
+Add the dependency to your `shard.yml`:
 
-   ```yaml
-   dependencies:
-     geo_json:
-       github: geocrystal/geo_json
-   ```
+```yaml
+dependencies:
+  geo_json:
+    github: geocrystal/geo_json
+```
 
-2. Run `shards install`
+and run `shards install`
 
 ## Usage
 

@@ -20,9 +20,13 @@ module GeoJSON
       coordinates[1]
     end
 
+    def altitude
+      coordinates[2]?
+    end
+
     private def raise_if_invalid
-      if coordinates.size != 2
-        raise "GeoJSON::Coordinates must have two coordinates"
+      if coordinates.size < 2 || coordinates.size > 3
+        raise "GeoJSON::Coordinates must have two or three coordinates"
       end
     end
 

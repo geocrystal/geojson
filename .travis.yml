@@ -9,7 +9,7 @@ script:
     provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
-    project_name: crest
+    project_name: geo_json
     local_dir: docs
     on:
       branch: master

@@ -31,5 +31,7 @@ module GeoJSON
     end
 
     delegate to_json, to: coordinates
+
+    def_equals_and_hash coordinates
   end
 end

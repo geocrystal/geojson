@@ -13,8 +13,17 @@ module GeoJSON
       end
     end
 
+    def initialize(@coordinates : GeoJSON::Coordinates)
+    end
+
+    def initialize(coordinates : Array(Float64))
+      @coordinates = GeoJSON::Coordinates.new(coordinates)
+    end
+
     delegate longitude, to: coordinates
     delegate latitude, to: coordinates
     delegate altitude, to: coordinates
+
+    def_equals_and_hash coordinates
   end
 end

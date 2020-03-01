@@ -5,11 +5,11 @@ script:
   - crystal tool format --check
   - crystal docs
 
-  deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    project_name: geo_json
-    local_dir: docs
-    on:
-      branch: master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: geo_json
+  local_dir: docs
+  on:
+    branch: master

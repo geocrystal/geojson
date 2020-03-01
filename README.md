@@ -51,3 +51,9 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Anton Maminov](https://github.com/mamantoha) - creator and maintainer
+
+## License
+
+Copyright: 2020 Anton Maminov (anton.maminov@gmail.com)
+
+This library is distributed under the MIT license. Please see the LICENSE file.

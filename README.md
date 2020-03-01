@@ -1,6 +1,8 @@
 # GeoJSON
 
 [![Build Status](https://travis-ci.org/geocrystal/geo_json.svg?branch=master)](https://travis-ci.org/geocrystal/geo_json)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://geocrystal.github.io/geo_json/)
+[![License](https://img.shields.io/github/license/geocrystal/geo_json.svg)](https://github.com/geocrystal/geo_json/blob/master/LICENSE)
 
 The [GeoJSON](https://tools.ietf.org/html/rfc7946) Format for Crystal
 

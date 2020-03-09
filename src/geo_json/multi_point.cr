@@ -5,6 +5,8 @@ module GeoJSON
 
     getter coordinates : Array(Point)
 
+    delegate "[]", to: coordinates
+
     def initialize(@coordinates : Array(Point))
     end
 
@@ -12,10 +14,6 @@ module GeoJSON
       @coordinates = coordinates.map do |coordinates|
         Point.new(coordinates)
       end
-    end
-
-    def [](index : Int)
-      coordinates[index]
     end
 
     def <<(point : Array(Point))

@@ -73,13 +73,13 @@ describe GeoJSON::Polygon do
       point.coordinates.should be_a(Array(Array(GeoJSON::Coordinates)))
     end
 
-    # it "raises an exception if LineString is invalid" do
-    #   expect_raises Exception, "GeoJSON::LineString must have two or more points" do
-    #     line_string = GeoJSON::LineString.new([
-    #       GeoJSON::Coordinates.new([-170.0, 10.0]),
-    #     ])
-    #   end
-    # end
+    it "raises an exception if LineString is invalid" do
+      expect_raises Exception, "GeoJSON::LineString must have two or more points" do
+        line_string = GeoJSON::LineString.new([
+          GeoJSON::Coordinates.new([-170.0, 10.0]),
+        ])
+      end
+    end
   end
 
   describe "json object" do

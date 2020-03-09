@@ -5,6 +5,7 @@ require "./geo_json/point"
 require "./geo_json/line_string"
 require "./geo_json/feature"
 require "./geo_json/feature_collection"
+require "./geo_json/polygon"
 
 module GeoJSON
   VERSION = "0.0.1"

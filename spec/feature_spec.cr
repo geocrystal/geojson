@@ -4,6 +4,27 @@ describe GeoJSON::Feature do
   longitude = -80.1347334
   latitude = 25.7663562
 
+  feature_json = {
+    "type"     => "Feature",
+    "geometry" => {
+      "type"        => "Point",
+      "coordinates" => [102.0, 0.5],
+    },
+    "properties" => {
+      "prop0" => "value0",
+    },
+  }.to_json
+
+  describe "json parser" do
+    it "parses json" do
+      feature = GeoJSON::Feature.from_json(feature_json)
+
+      feature.should be_a(GeoJSON::Feature)
+      feature.type.should eq("Feature")
+      feature.geometry.should be_a(GeoJSON::Point)
+    end
+  end
+
   describe ".new" do
     it "initialize Feature with geometry" do
       geometry = GeoJSON::Point.new(longitude: longitude, latitude: latitude)

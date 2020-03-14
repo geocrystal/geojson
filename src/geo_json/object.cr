@@ -14,6 +14,9 @@ module GeoJSON
   abstract class Object
     include JSON::Serializable
 
+    # All possible GeoJSON types.
+    alias Type = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | Feature | FeatureCollection
+
     abstract def type : String
   end
 end

@@ -6,7 +6,7 @@ module GeoJSON
     getter type : String = "Feature"
 
     @[JSON::Field(emit_null: true)]
-    getter geometry : Object?
+    getter geometry : GeoJSON::Object::Type?
 
     @[JSON::Field(emit_null: true)]
     getter properties : Hash(String, JSON::Any::Type)?

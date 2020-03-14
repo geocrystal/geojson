@@ -9,11 +9,11 @@ The [GeoJSON](https://tools.ietf.org/html/rfc7946) Format for Crystal
 ## GeoJSON types
 
 - [x] Point
-- [x] MultiPoint
+- [ ] MultiPoint
 - [x] LineString
-- [x] MultiLineString
+- [ ] MultiLineString
 - [x] Polygon
-- [x] MultiPolygon
+- [ ] MultiPolygon
 - [ ] GeometryCollection
 - [x] Feature
 - [x] FeatureCollection

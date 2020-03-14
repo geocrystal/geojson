@@ -35,7 +35,7 @@ describe GeoJSON::Point do
     end
 
     it "raises an exception if coordinates are invalid" do
-      expect_raises Exception, "GeoJSON::Coordinates must have two or three coordinates" do
+      expect_raises GeoJSON::Exception, "coordinates need to have have two or three elements" do
         GeoJSON::Point.from_json(invalid_point_json)
       end
     end
@@ -91,7 +91,7 @@ describe GeoJSON::Point do
     end
 
     it "raises an exception if coordinates are invalid" do
-      expect_raises Exception, "GeoJSON::Coordinates must have two or three coordinates" do
+      expect_raises GeoJSON::Exception, "coordinates need to have have two or three elements" do
         GeoJSON::Point.new(invalid_position)
       end
     end

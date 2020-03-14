@@ -27,15 +27,18 @@ module GeoJSON
 
     private def raise_if_invalid
       if coordinates.empty?
-        raise "GeoJSON::Polygon must have at least one array of points"
+        "a number was found where a coordinate array should have been found: this needs to be nested more deeply"
+        raise GeoJSON::Exception.new("a coordinate array should have been found")
       end
 
-      if coordinates.first.size < 4
-        raise "GeoJSON::Polygon must have four or more points"
-      end
+      coordinates.each do |ring|
+        if ring.size < 4
+          raise GeoJSON::Exception.new("a LinearRing of coordinates needs to have four or more positions")
+        end
 
-      unless coordinates.first.first == coordinates.first.last
-        raise "GeoJSON::Polygon must have equivalent first and last positions"
+        unless ring.first == ring.last
+          raise GeoJSON::Exception.new("the first and last positions in a LinearRing of coordinates must be the same")
+        end
       end
     end
   end

@@ -67,6 +67,39 @@ describe GeoJSON::Polygon do
       polygon.coordinates.should be_a(Array(Array(GeoJSON::Coordinates)))
       polygon.coordinates.size.should eq(2)
     end
+
+    context "exceptions" do
+      it "raise an error if empty" do
+        expect_raises GeoJSON::Exception, "a coordinate array should have been found" do
+          GeoJSON::Polygon.new([] of Array(GeoJSON::Coordinates))
+        end
+      end
+
+      it "raise an error if have less then four positions" do
+        ring = [
+          [-10.0, -10.0],
+          [10.0, -10.0],
+          [-10.0, -10.0],
+        ]
+
+        expect_raises GeoJSON::Exception, "a LinearRing of coordinates needs to have four or more positions" do
+          GeoJSON::Polygon.new([ring])
+        end
+      end
+
+      it "raise an error unless first and last positions are the same" do
+        ring = [
+          [-10.0, -10.0],
+          [10.0, -10.0],
+          [10.0, 10.0],
+          [-10.0, -10.1],
+        ]
+
+        expect_raises GeoJSON::Exception, "the first and last positions in a LinearRing of coordinates must be the same" do
+          GeoJSON::Polygon.new([ring])
+        end
+      end
+    end
   end
 
   describe "json parser" do

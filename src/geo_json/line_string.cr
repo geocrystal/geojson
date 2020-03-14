@@ -25,7 +25,7 @@ module GeoJSON
 
     private def raise_if_invalid
       if coordinates.size < 2
-        raise "GeoJSON::LineString must have two or more points"
+        raise GeoJSON::Exception.new("a line needs to have two or more coordinates to be valid")
       end
     end
   end

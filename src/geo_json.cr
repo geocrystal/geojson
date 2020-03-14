@@ -1,4 +1,5 @@
 require "json"
+require "./geo_json/exception"
 require "./geo_json/object"
 require "./geo_json/coordinates"
 require "./geo_json/point"

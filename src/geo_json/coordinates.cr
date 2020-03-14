@@ -26,7 +26,7 @@ module GeoJSON
 
     private def raise_if_invalid
       if coordinates.size < 2 || coordinates.size > 3
-        raise "GeoJSON::Coordinates must have two or three coordinates"
+        raise GeoJSON::Exception.new("coordinates need to have have two or three elements")
       end
     end
 

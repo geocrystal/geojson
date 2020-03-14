@@ -3,25 +3,26 @@ module GeoJSON
   class MultiPoint < Object
     getter type : String = "MultiPoint"
 
-    getter coordinates : Array(Point)
+    getter coordinates : Array(Coordinates)
 
     delegate "[]", to: coordinates
 
-    def initialize(@coordinates : Array(Point))
+    def initialize(coordinates : Array(Point))
+      @coordinates = coordinates.map(&.coordinates)
     end
 
     def initialize(coordinates : Array(Array(Float64)))
       @coordinates = coordinates.map do |coordinates|
-        Point.new(coordinates)
+        Point.new(coordinates).coordinates
       end
     end
 
     def <<(point : Array(Point))
-      @coordinates << point
+      @coordinates << point.coordinates
     end
 
     def <<(coordinate : Array(Float64))
-      @coordinates << Point.new(coordinate)
+      @coordinates << Point.new(coordinate).coordinates
     end
   end
 end

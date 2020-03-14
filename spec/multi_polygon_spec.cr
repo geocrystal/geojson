@@ -3,36 +3,27 @@ require "./spec_helper"
 describe GeoJSON::MultiPolygon do
   ring1 = [
     [
-      [1.0, 1.0],
-      [1.0, 2.0],
-      [2.0, 2.0],
-      [2.0, 1.0],
-      [1.0, 1.0],
+      [102.0, 2.0],
+      [103.0, 2.0],
+      [103.0, 3.0],
+      [102.0, 3.0],
+      [102.0, 2.0],
     ],
   ]
 
   ring2 = [
     [
-      [3.0, 3.0],
-      [3.0, 4.0],
-      [4.0, 4.0],
-      [4.0, 3.0],
-      [3.0, 3.0],
+      [100.0, 0.0],
+      [101.0, 0.0],
+      [101.0, 1.0],
+      [100.0, 1.0],
+      [100.0, 0.0],
     ],
   ]
 
   multi_polygon_json = {
     "type"        => "MultiPolygon",
-    "coordinates" => [
-      {
-        "type"        => "Polygon",
-        "coordinates" => ring1,
-      },
-      {
-        "type"        => "Polygon",
-        "coordinates" => ring2,
-      },
-    ],
+    "coordinates" => [ring1, ring2],
   }.to_json
 
   describe "json parser" do
@@ -41,10 +32,10 @@ describe GeoJSON::MultiPolygon do
 
       multi_polygon.should be_a(GeoJSON::MultiPolygon)
       multi_polygon.type.should eq("MultiPolygon")
-      multi_polygon.coordinates.should be_a(Array(GeoJSON::Polygon))
+      multi_polygon.coordinates.should be_a(Array(Array(Array(GeoJSON::Coordinates))))
 
       polygon = multi_polygon[0]
-      polygon.should be_a(GeoJSON::Polygon)
+      polygon.should be_a(Array(Array(GeoJSON::Coordinates)))
     end
   end
 
@@ -57,7 +48,7 @@ describe GeoJSON::MultiPolygon do
 
       multi_polygon.should be_a(GeoJSON::MultiPolygon)
       multi_polygon.type.should eq("MultiPolygon")
-      multi_polygon.coordinates.should be_a(Array(GeoJSON::Polygon))
+      multi_polygon.coordinates.should be_a(Array(Array(Array(GeoJSON::Coordinates))))
 
       multi_polygon.to_json.should eq(multi_polygon_json)
     end

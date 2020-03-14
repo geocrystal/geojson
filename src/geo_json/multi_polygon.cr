@@ -3,25 +3,26 @@ module GeoJSON
   class MultiPolygon < Object
     getter type : String = "MultiPolygon"
 
-    getter coordinates : Array(Polygon)
+    getter coordinates : Array(Array(Array(GeoJSON::Coordinates)))
 
     delegate "[]", to: coordinates
 
-    def initialize(@coordinates : Array(Polygon))
+    def initialize(coordinates : Array(Polygon))
+      @coordinates = coordinates.map(&.coordinates)
     end
 
     def initialize(coordinates : Array(Array(Array(Array(Float64)))))
       @coordinates = coordinates.map do |arry|
-        Polygon.new(arry)
+        Polygon.new(arry).coordinates
       end
     end
 
     def <<(polygon : Array(Polygon))
-      @coordinates << polygon
+      @coordinates << polygon.coordinates
     end
 
     def <<(coordinate : Array(Array(Array(Float64))))
-      @coordinates << Polygon.new(coordinate)
+      @coordinates << Polygon.new(coordinate).coordinates
     end
   end
 end

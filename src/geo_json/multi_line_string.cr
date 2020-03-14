@@ -3,16 +3,17 @@ module GeoJSON
   class MultiLineString < Object
     getter type : String = "MultiLineString"
 
-    getter coordinates : Array(LineString)
+    getter coordinates : Array(Array(GeoJSON::Coordinates))
 
     delegate "[]", to: coordinates
 
-    def initialize(@coordinates : Array(LineString))
+    def initialize(coordinates : Array(LineString))
+      @coordinates = coordinates.map(&.coordinates)
     end
 
     def initialize(coordinates : Array(Array(Array(Float64))))
       @coordinates = coordinates.map do |arry|
-        LineString.new(arry)
+        LineString.new(arry).coordinates
       end
     end
 
@@ -21,7 +22,7 @@ module GeoJSON
     end
 
     def <<(coordinate : Array(Array(Float64)))
-      @coordinates << LineString.new(coordinate)
+      @coordinates << LineString.new(coordinate).coordinates
     end
   end
 end

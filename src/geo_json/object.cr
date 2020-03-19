@@ -43,9 +43,7 @@ module GeoJSON
       pull.read_begin_object
 
       while !pull.kind.end_object?
-        tmp = pull.read_string
-
-        case tmp
+        case pull.read_string
         when "type"
           object_type = pull.read_string
         when "coordinates"
@@ -67,6 +65,7 @@ module GeoJSON
       when "LineString"
         if coordinates
           coordinates = coordinates.map { |c| c.as(Array(Float64)).map(&.to_f) }
+
           return GeoJSON::LineString.new(coordinates)
         end
       when "Polygon"

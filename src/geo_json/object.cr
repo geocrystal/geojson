@@ -21,7 +21,8 @@ module GeoJSON
 
     abstract def type : String
 
-    def self.recursive_array(pull, ary = [] of CoordinatesArray)
+    def self.recursive_array(pull)
+      ary = [] of CoordinatesArray
       coordinates = [] of Float64
 
       pull.read_begin_array

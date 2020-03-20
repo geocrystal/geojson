@@ -4,7 +4,15 @@ describe GeoJSON::Feature do
   longitude = -80.1347334
   latitude = 25.7663562
 
-  feature_json = {
+  point_coordinates = [102.0, 0.5]
+  ring = [
+    [100.0, 0.0],
+    [101.0, 0.0],
+    [101.0, 1.0],
+    [100.0, 1.0],
+    [100.0, 0.0],
+  ]
+  feature_point_json = {
     "type"     => "Feature",
     "geometry" => {
       "type"        => "Point",
@@ -15,13 +23,35 @@ describe GeoJSON::Feature do
     },
   }.to_json
 
+  feature_polygon_json = {
+    "type"     => "Feature",
+    "geometry" => {
+      "type"        => "Polygon",
+      "coordinates" => [ring],
+    },
+    "properties" => {
+      "prop0" => "value0",
+      "prop1" => {
+        "this" => "that",
+      },
+    },
+  }.to_json
+
   describe "json parser" do
-    it "parses json" do
-      feature = GeoJSON::Feature.from_json(feature_json)
+    it "parses feture point json" do
+      feature = GeoJSON::Feature.from_json(feature_point_json)
 
       feature.should be_a(GeoJSON::Feature)
       feature.type.should eq("Feature")
       feature.geometry.should be_a(GeoJSON::Point)
+    end
+
+    it "parses feature polygon json" do
+      feature = GeoJSON::Feature.from_json(feature_polygon_json)
+
+      feature.geometry.should be_a(GeoJSON::Polygon)
+      polygon = feature.geometry.not_nil!.as(GeoJSON::Polygon)
+      polygon.coordinates.should be_a(Array(Array(GeoJSON::Coordinates)))
     end
   end
 

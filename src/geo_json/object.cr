@@ -85,11 +85,11 @@ module GeoJSON
     end
 
     private def self.multi_point(coordinates) : MultiPoint
-      coordinates = coordinates.map do |point|
-        Point.new(point.as(Array(Float64)))
+      points = coordinates.map do |point|
+        point(point)
       end
 
-      GeoJSON::MultiPoint.new(coordinates)
+      GeoJSON::MultiPoint.new(points)
     end
 
     private def self.line_string(coordinates) : LineString
@@ -100,9 +100,7 @@ module GeoJSON
 
     private def self.multi_line_string(coordinates) : MultiLineString
       line_strings = coordinates.map do |line_string|
-        LineString.new(
-          line_string.as(Array(CoordinatesArray)).map { |point| point.as(Array(Float64)).map(&.to_f) }
-        )
+        line_string(line_string.as(Array(CoordinatesArray)))
       end
 
       GeoJSON::MultiLineString.new(line_strings)
@@ -120,13 +118,7 @@ module GeoJSON
 
     private def self.multi_polygon(coordinates) : MultiPolygon
       polygons = coordinates.map do |polygon|
-        Polygon.new(
-          polygon.as(Array(CoordinatesArray)).map do |ring|
-            ring.as(Array(CoordinatesArray)).map do |point|
-              point.as(Array(Float64)).map(&.to_f)
-            end
-          end
-        )
+        polygon(polygon.as(Array(CoordinatesArray)))
       end
 
       GeoJSON::MultiPolygon.new(polygons)

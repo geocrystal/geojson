@@ -43,45 +43,17 @@ module GeoJSON
 
       case object_type
       when "Point"
-        Point.new(coordinates.as(Array(Float64)))
+        point(coordinates)
       when "MultiPoint"
-        coordinates = coordinates.map do |point|
-          Point.new(point.as(Array(Float64)))
-        end
-
-        GeoJSON::MultiPoint.new(coordinates)
+        multi_point(coordinates)
       when "LineString"
-        coordinates = coordinates.map { |point| point.as(Array(Float64)).map(&.to_f) }
-
-        GeoJSON::LineString.new(coordinates)
+        line_string(coordinates)
       when "MultiLineString"
-        coordinates = coordinates.map do |line_string|
-          LineString.new(
-            line_string.as(Array(CoordinatesArray)).map { |point| point.as(Array(Float64)).map(&.to_f) }
-          )
-        end
-
-        GeoJSON::MultiLineString.new(coordinates)
+        multi_line_string(coordinates)
       when "Polygon"
-        coordinates = coordinates.map do |ring|
-          ring.as(Array(CoordinatesArray)).map do |point|
-            point.as(Array(Float64)).map(&.to_f)
-          end
-        end
-
-        GeoJSON::Polygon.new(coordinates)
+        polygon(coordinates)
       when "MultiPolygon"
-        coordinates = coordinates.map do |polygon|
-          Polygon.new(
-            polygon.as(Array(CoordinatesArray)).map do |ring|
-              ring.as(Array(CoordinatesArray)).map do |point|
-                point.as(Array(Float64)).map(&.to_f)
-              end
-            end
-          )
-        end
-
-        GeoJSON::MultiPolygon.new(coordinates)
+        multi_polygon(coordinates)
       else
         nil
       end
@@ -106,6 +78,58 @@ module GeoJSON
       pull.read_end_array
 
       ary.empty? ? coordinates : ary
+    end
+
+    private def self.point(coordinates) : Point
+      Point.new(coordinates.as(Array(Float64)))
+    end
+
+    private def self.multi_point(coordinates) : MultiPoint
+      coordinates = coordinates.map do |point|
+        Point.new(point.as(Array(Float64)))
+      end
+
+      GeoJSON::MultiPoint.new(coordinates)
+    end
+
+    private def self.line_string(coordinates) : LineString
+      coordinates = coordinates.map { |point| point.as(Array(Float64)).map(&.to_f) }
+
+      GeoJSON::LineString.new(coordinates)
+    end
+
+    private def self.multi_line_string(coordinates) : MultiLineString
+      line_strings = coordinates.map do |line_string|
+        LineString.new(
+          line_string.as(Array(CoordinatesArray)).map { |point| point.as(Array(Float64)).map(&.to_f) }
+        )
+      end
+
+      GeoJSON::MultiLineString.new(line_strings)
+    end
+
+    private def self.polygon(coordinates) : Polygon
+      rings = coordinates.map do |ring|
+        ring.as(Array(CoordinatesArray)).map do |point|
+          point.as(Array(Float64)).map(&.to_f)
+        end
+      end
+
+      GeoJSON::Polygon.new(rings)
+    end
+
+    private def self.multi_polygon(coordinates) : MultiPolygon
+      polygons = coordinates.map do |polygon|
+        Polygon.new(
+          polygon.as(Array(CoordinatesArray)).map do |ring|
+            ring.as(Array(CoordinatesArray)).map do |point|
+              point.as(Array(Float64)).map(&.to_f)
+            end
+          end
+        )
+      end
+
+      GeoJSON::MultiPolygon.new(polygons)
     end
   end
 end

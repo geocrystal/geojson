@@ -44,10 +44,24 @@ module GeoJSON
       case object_type
       when "Point"
         Point.new(coordinates.as(Array(Float64)))
+      when "MultiPoint"
+        coordinates = coordinates.map do |point|
+          Point.new(point.as(Array(Float64)))
+        end
+
+        GeoJSON::MultiPoint.new(coordinates)
       when "LineString"
         coordinates = coordinates.map { |point| point.as(Array(Float64)).map(&.to_f) }
 
         GeoJSON::LineString.new(coordinates)
+      when "MultiLineString"
+        coordinates = coordinates.map do |line_string|
+          LineString.new(
+            line_string.as(Array(CoordinatesArray)).map { |point| point.as(Array(Float64)).map(&.to_f) }
+          )
+        end
+
+        GeoJSON::MultiLineString.new(coordinates)
       when "Polygon"
         coordinates = coordinates.map do |ring|
           ring.as(Array(CoordinatesArray)).map do |point|
@@ -56,6 +70,18 @@ module GeoJSON
         end
 
         GeoJSON::Polygon.new(coordinates)
+      when "MultiPolygon"
+        coordinates = coordinates.map do |polygon|
+          Polygon.new(
+            polygon.as(Array(CoordinatesArray)).map do |ring|
+              ring.as(Array(CoordinatesArray)).map do |point|
+                point.as(Array(Float64)).map(&.to_f)
+              end
+            end
+          )
+        end
+
+        GeoJSON::MultiPolygon.new(coordinates)
       else
         nil
       end

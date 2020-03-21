@@ -30,8 +30,6 @@ module GeoJSON
           object_type = pull.read_string
         when "coordinates"
           coordinates = recursive_array(pull)
-        when "geometry"
-          new(pull)
         else
           pull.read_next
         end

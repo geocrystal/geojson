@@ -121,6 +121,36 @@ line_string.to_json
 
 For type `MultiLineString`, the `coordinates` member is an array of `LineString` coordinate arrays.
 
+```crystal
+line_string1 = GeoJSON::LineString.new([[100.0, 0.0], [101.0, 1.0]])
+line_string2 = GeoJSON::LineString.new([[102.0, 2.0], [103.0, 3.0]])
+
+multi_line_string = GeoJSON::MultiLineString.new([line_string1, line_string2])
+```
+
+```crystal
+multi_line_string = GeoJSON::MultiLineString.new([
+  [[100.0, 0.0], [101.0, 1.0]],
+  [[102.0, 2.0], [103.0, 3.0]],
+])
+```
+
+```json
+{
+  "type":"MultiLineString",
+  "coordinates":[
+    [
+      [100.0, 0.0],
+      [101.0, 1.0]
+    ],
+    [
+      [102.0, 2.0],
+      [103.0, 3.0]
+    ]
+  ]
+}
+```
+
 ### Polygon
 
 ### MultiPolygon

@@ -208,6 +208,58 @@ A `GeometryCollection` has a member with the name `geometries`. The
 value of `geometries` is an array. Each element of this array is a
 GeoJSON Geometry object.
 
+```crystal
+point = GeoJSON::Point.new([100.0, 0.0])
+line_string = GeoJSON::LineString.new([
+  [101.0, 0.0],
+  [102.0, 1.0],
+])
+polygon = GeoJSON::Polygon.new([
+  [
+    [100.0, 0.0],
+    [101.0, 0.0],
+    [101.0, 1.0],
+    [100.0, 1.0],
+    [100.0, 0.0],
+  ],
+])
+
+geometry_collection = GeoJSON::GeometryCollection.new([point, line_string, polygon])
+geometry_collection.to_json
+```
+
+```json
+{
+  "type":"GeometryCollection",
+  "geometries":[
+    {
+      "type":"Point",
+      "coordinates":[100.0,0.0]
+    },
+    {
+      "type":"LineString",
+      "coordinates":[
+          [101.0,0.0],
+          [102.0,1.0
+        ]
+      ]
+    },
+    {
+      "type":"Polygon",
+      "coordinates":[
+        [
+          [100.0,0.0],
+          [101.0,0.0],
+          [101.0,1.0],
+          [100.0,1.0],
+          [100.0,0.0]
+        ]
+      ]
+    }
+  ]
+}
+```
+
 ### Feature
 
 ### FeatureCollection

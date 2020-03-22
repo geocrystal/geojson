@@ -133,6 +133,7 @@ multi_line_string = GeoJSON::MultiLineString.new([
   [[100.0, 0.0], [101.0, 1.0]],
   [[102.0, 2.0], [103.0, 3.0]],
 ])
+multi_line_string.to_json
 ```
 
 ```json
@@ -152,6 +153,48 @@ multi_line_string = GeoJSON::MultiLineString.new([
 ```
 
 ### Polygon
+
+GeoJSON polygons represent closed shapes on a map, like triangles, squares, dodecagons, or any shape with a fixed number of sides.
+
+To specify a constraint specific to `Polygon`, it is useful to introduce the concept of a linear ring:
+
+- A linear ring is a closed `LineString` with four or more positions.
+- The first and last positions are equivalent, and they __must__ contain identical values; their representation __should__ also be identical.
+- A linear ring is the boundary of a surface or the boundary of a hole in a surface.
+- A linear ring __must__ follow the right-hand rule with respect to the area it bounds, i.e., exterior rings are counterclockwise, and holes are clockwise.
+
+The `Polygon` geometry type definition as follows:
+
+- For type `Polygon`, the `coordinates` member __must)) be an array of linear ring coordinate arrays.
+- For `Polygon` with more than one of these rings, the first __must__ be the exterior ring, and any others __must__ be interior rings. The exterior ring bounds the surface, and the interior rings (if present) bound holes within the surface.
+
+```crystal
+polygon = GeoJSON::Polygon.new([
+  [[-10.0, -10.0], [10.0, -10.0], [10.0, 10.0], [-10.0,-10.0]],
+  [[-1.0, -2.0], [3.0, -2.0], [3.0, 2.0], [-1.0,-2.0]]
+])
+polygon.to_json
+```
+
+```json
+{
+  "type": "Polygon",
+  "coordinates": [
+    [
+      [-10.0, -10.0],
+      [10.0, -10.0],
+      [10.0,10.0],
+      [-10.0,-10.0]
+    ],
+    [
+      [-1.0, -2.0],
+      [3.0, -2.0],
+      [3.0, 2.0],
+      [-1.0,-2.0]
+    ]
+  ]
+}
+```
 
 ### MultiPolygon
 

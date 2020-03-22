@@ -200,6 +200,44 @@ polygon.to_json
 
 For type `MultiPolygon`, the `coordinates` member is an array of `Polygon` coordinate arrays.
 
+```crystal
+polygon1 = GeoJSON::Polygon.new(
+  [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]]
+)
+polygon2 = GeoJSON::Polygon.new(
+  [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]]]
+)
+
+multi_polygon = GeoJSON::MultiPolygon.new([polygon1, polygon2])
+multi_polygon.to_json
+```
+
+```json
+{
+  "type":"MultiPolygon",
+  "coordinates":[
+    [
+      [
+        [102.0,2.0],
+        [103.0,2.0],
+        [103.0,3.0],
+        [102.0,3.0],
+        [102.0,2.0]
+      ]
+    ],
+    [
+      [
+        [100.0,0.0],
+        [101.0,0.0],
+        [101.0,1.0],
+        [100.0,1.0],
+        [100.0,0.0]
+      ]
+    ]
+  ]
+}
+```
+
 ### GeometryCollection
 
 A GeoJSON object with type `GeometryCollection` is a Geometry object.

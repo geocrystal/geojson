@@ -5,6 +5,7 @@ describe GeoJSON::Feature do
   latitude = 25.7663562
 
   point_coordinates = [102.0, 0.5]
+
   ring = [
     [100.0, 0.0],
     [101.0, 0.0],
@@ -12,11 +13,12 @@ describe GeoJSON::Feature do
     [100.0, 1.0],
     [100.0, 0.0],
   ]
+
   feature_point_json = {
     "type"     => "Feature",
     "geometry" => {
       "type"        => "Point",
-      "coordinates" => [102.0, 0.5],
+      "coordinates" => point_coordinates,
     },
     "properties" => {
       "prop0" => "value0",

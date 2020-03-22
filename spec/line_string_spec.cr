@@ -20,7 +20,7 @@ describe GeoJSON::LineString do
 
     it "raises an exception if LineString is invalid" do
       expect_raises GeoJSON::Exception, "a line needs to have two or more coordinates to be valid" do
-        line_string = GeoJSON::LineString.new([
+        GeoJSON::LineString.new([
           GeoJSON::Coordinates.new([-170.0, 10.0]),
         ])
       end

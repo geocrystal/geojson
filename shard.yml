@@ -1,8 +1,11 @@
 name: geo_json
-version: 0.0.1
+version: 0.1.0
 
 authors:
   - Anton Maminov <anton.maminov@gmail.com>
+
+description: |
+  Crystal library for reading and writing GeoJSON
 
 crystal: 0.33.0
 

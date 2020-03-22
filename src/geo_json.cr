@@ -13,5 +13,5 @@ require "./geo_json/feature"
 require "./geo_json/feature_collection"
 
 module GeoJSON
-  VERSION = "0.0.1"
+  VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 end

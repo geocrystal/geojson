@@ -165,7 +165,7 @@ To specify a constraint specific to `Polygon`, it is useful to introduce the con
 
 The `Polygon` geometry type definition as follows:
 
-- For type `Polygon`, the `coordinates` member __must)) be an array of linear ring coordinate arrays.
+- For type `Polygon`, the `coordinates` member __must__ be an array of linear ring coordinate arrays.
 - For `Polygon` with more than one of these rings, the first __must__ be the exterior ring, and any others __must__ be interior rings. The exterior ring bounds the surface, and the interior rings (if present) bound holes within the surface.
 
 ```crystal

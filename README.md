@@ -277,9 +277,8 @@ geometry_collection.to_json
     {
       "type":"LineString",
       "coordinates":[
-          [101.0,0.0],
-          [102.0,1.0
-        ]
+        [101.0,0.0],
+        [102.0,1.0]
       ]
     },
     {

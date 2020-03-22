@@ -34,8 +34,6 @@ describe GeoJSON::LineString do
         GeoJSON::Coordinates.new([-120.0, 42.0]),
       ])
 
-      puts line_string.to_json
-
       line_string.should be_a(GeoJSON::LineString)
       line_string.type.should eq("LineString")
       line_string.coordinates.should be_a(Array(GeoJSON::Coordinates))

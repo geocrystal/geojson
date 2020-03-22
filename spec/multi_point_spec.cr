@@ -27,8 +27,6 @@ describe GeoJSON::MultiPoint do
       point2 = GeoJSON::Point.new(longitude: 101.0, latitude: 1.0)
       multi_point = GeoJSON::MultiPoint.new([point1, point2])
 
-      puts multi_point.to_json
-
       multi_point.should be_a(GeoJSON::MultiPoint)
       multi_point.type.should eq("MultiPoint")
       multi_point[0].should be_a(GeoJSON::Coordinates)

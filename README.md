@@ -262,7 +262,94 @@ geometry_collection.to_json
 
 ### Feature
 
+A `Feature` object represents a spatially bounded thing. Every `Feature` object is a GeoJSON object no matter where it occurs in a GeoJSON text.
+
+- A `Feature` object has a `"type"` member with the value `"Feature"`.
+- A `Feature` object has a member with the name `"geometry"`. The value of the geometry member __shall__ be either a Geometry object as defined above or, in the case that the `Feature` is unlocated, a JSON `null` value.
+- A `Feature` object has a member with the name `"properties"`. The value of the properties member is an object (any JSON object or a JSON `null` value).
+- If a `Feature` has a commonly used identifier, that identifier __should__ be included as a member of the `Feature` object with the name `"id"`, and the value of this member is either a JSON string or number.
+
+```crystal
+point = GeoJSON::Point.new([-80.1347334, 25.7663562])
+properties = {"color" => "red"} of String => JSON::Any::Type
+feature = GeoJSON::Feature.new(point, properties, id: 1)
+feature.to_json
+```
+
+```json
+{
+  "type":"Feature",
+  "geometry":{
+    "type":"Point",
+    "coordinates":[-80.1347334,25.7663562]
+  },
+  "properties":{
+    "color":"red"
+  },
+  "id":1
+}
+```
+
 ### FeatureCollection
+
+A GeoJSON object with the type `"FeatureCollection"` is a `FeatureCollection` object. A `FeatureCollection` object has a member with the name `"features"`. The value of `"features"` is a JSON array. Each element of the array is a `Feature` object. It is possible for this array to be empty.
+
+```crystal
+feature1 = GeoJSON::Feature.new(
+  GeoJSON::Point.new([102.0, 0.5]),
+  id: "point"
+)
+
+feature2 = GeoJSON::Feature.new(
+  GeoJSON::Polygon.new([
+    [
+      [100.0, 0.0],
+      [101.0, 0.0],
+      [101.0, 1.0],
+      [100.0, 1.0],
+      [100.0, 0.0],
+    ],
+  ]),
+  type: "polygon"
+)
+
+feature_collection = GeoJSON::FeatureCollection.new([feature1, feature2])
+feature_collection.to_json
+```
+
+```json
+{
+  "type":"FeatureCollection",
+  "features":[
+    {
+      "type":"Feature",
+      "geometry":{
+        "type":"Point",
+        "coordinates":[102.0,0.5]
+      },
+      "properties":null,
+      "id":"point"
+    },
+    {
+      "type":"Feature",
+      "geometry":{
+        "type":"Polygon",
+        "coordinates":[
+          [
+            [100.0,0.0],
+            [101.0,0.0],
+            [101.0,1.0],
+            [100.0,1.0],
+            [100.0,0.0]
+          ]
+        ]
+      },
+      "properties":null,
+      "id":"polygon"
+    }
+  ]
+}
+```
 
 ## Contributing
 

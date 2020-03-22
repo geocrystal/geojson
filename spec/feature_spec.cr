@@ -4,7 +4,7 @@ describe GeoJSON::Feature do
   longitude = -80.1347334
   latitude = 25.7663562
 
-  point_coordinates = [102.0, 0.5]
+  point_coordinates = [longitude, latitude]
 
   ring = [
     [100.0, 0.0],
@@ -78,7 +78,7 @@ describe GeoJSON::Feature do
     end
 
     it "initialize Feature with geometry and properties" do
-      geometry = GeoJSON::Point.new(longitude: longitude, latitude: latitude)
+      geometry = GeoJSON::Point.new(point_coordinates)
       properties = {"color" => "red"} of String => JSON::Any::Type
       feature = GeoJSON::Feature.new(geometry, properties, id: 1)
 

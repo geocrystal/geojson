@@ -14,10 +14,8 @@ module GeoJSON
       pull.read_begin_object
 
       until pull.kind.end_object?
-        if pull.kind.string?
-          if pull.read_string == "geometries"
-            geometries = read_geometries(pull)
-          end
+        if pull.kind.string? && pull.read_string == "geometries"
+          geometries = read_geometries(pull)
         else
           pull.read_next
         end

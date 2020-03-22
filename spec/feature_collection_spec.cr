@@ -150,8 +150,22 @@ describe GeoJSON::FeatureCollection do
 
   describe ".new" do
     it "initialize collection with features" do
-      feature1 = GeoJSON::Feature.new(GeoJSON::Point.new(longitude: 1.0, latitude: 0.1))
-      feature2 = GeoJSON::Feature.new(GeoJSON::Point.new(longitude: 0.1, latitude: 1.0))
+      feature1 = GeoJSON::Feature.new(
+        GeoJSON::Point.new([102.0, 0.5]),
+        id: "point"
+      )
+      feature2 = GeoJSON::Feature.new(
+        GeoJSON::Polygon.new([
+          [
+            [100.0, 0.0],
+            [101.0, 0.0],
+            [101.0, 1.0],
+            [100.0, 1.0],
+            [100.0, 0.0],
+          ],
+        ]),
+        id: "polygon"
+      )
 
       feature_collection = GeoJSON::FeatureCollection.new([feature1, feature2])
 

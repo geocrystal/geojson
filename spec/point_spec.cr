@@ -101,9 +101,7 @@ describe GeoJSON::Point do
     it "creates json object" do
       point = GeoJSON::Point.new(longitude: longitude, latitude: latitude)
 
-      point.to_json.should eq(
-        "{\"type\":\"Point\",\"coordinates\":[-80.1347334,25.7663562]}"
-      )
+      point.to_json.should eq(point_json)
     end
   end
 

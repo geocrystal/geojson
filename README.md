@@ -27,6 +27,24 @@ and run `shards install`
 require "geo_json"
 ```
 
+## Position
+
+A position is the fundamental geometry construct.  The `coordinates` member of a Geometry object is composed of either:
+
+- one position in the case of a `Point` geometry
+- an array of positions in the case of a `LineString` or `MultiPoint` geometry
+- an array of `LineString` or linear ring coordinates in the case of a `Polygon` or `MultiLineString` geometry
+- an array of `Polygon` coordinates in the case of a `MultiPolygon` geometry
+
+A position is an array of `Float64`.
+
+There __must__ be two or more elements. The first two elements are `longitude` and `latitude`. `Altitude` __may__ be included as an optional third element.
+
+```crystal
+postition = [-80.1347334, 25.7663562, 0.0]
+point = GeoJSON::Point.new(position)
+```
+
 ## GeoJSON types
 
 ### Point

@@ -27,6 +27,13 @@ describe GeoJSON::GeometryCollection do
       geometry_collection = GeoJSON::GeometryCollection.from_json(geometry_collection_json)
       geometry_collection.should be_a(GeoJSON::GeometryCollection)
       geometry_collection.geometries.should be_a(Array(GeoJSON::Object::Type))
+      geometry_collection.geometries.size.should eq(2)
+
+      point = geometry_collection.geometries[0]
+      point.should be_a(GeoJSON::Point)
+
+      line_string = geometry_collection.geometries[1]
+      line_string.should be_a(GeoJSON::LineString)
     end
   end
 

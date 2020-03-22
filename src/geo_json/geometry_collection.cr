@@ -3,29 +3,46 @@ module GeoJSON
   class GeometryCollection < Object
     getter type : String = "GeometryCollection"
 
-    getter geometries : Array(Type) = Array(GeoJSON::Object::Type).new
+    getter geometries : Array(GeoJSON::Object::Type) = Array(GeoJSON::Object::Type).new
 
-    def initialize(geometries : Array(Type))
+    def initialize(geometries : Array(GeoJSON::Object::Type))
       @geometries += geometries
     end
 
     def self.new(pull : JSON::PullParser)
+      geometries = [] of GeoJSON::Object::Type
       pull.read_begin_object
 
       until pull.kind.end_object?
-        case pull.kind
-        when .string?
-          pull.read_string
+        if pull.kind.string?
+          if pull.read_string == "geometries"
+            geometries = read_geometries(pull)
+          end
         else
           pull.read_next
         end
       end
 
-      pull.read_end_object
-
-      # TODO
-      geometries = [Point.new([0.0, 0.0])]
       GeoJSON::GeometryCollection.new(geometries)
+    end
+
+    def self.read_geometries(pull : JSON::PullParser)
+      geometries = [] of GeoJSON::Object::Type
+
+      pull.read_begin_array
+
+      until pull.kind.end_array?
+        case pull.kind
+        when .begin_object?
+          if geometry = GeoJSON::Object.new(pull)
+            geometries << geometry
+          end
+        else
+          pull.read_next
+        end
+      end
+
+      geometries
     end
   end
 end

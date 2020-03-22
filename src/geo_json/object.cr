@@ -22,6 +22,14 @@ module GeoJSON
     abstract def type : String
 
     def self.new(pull : JSON::PullParser)
+      object_type, coordinates = parse_object(pull)
+
+      return unless coordinates
+
+      create_object(object_type, coordinates)
+    end
+
+    private def self.parse_object(pull)
       pull.read_begin_object
 
       until pull.kind.end_object?
@@ -37,8 +45,10 @@ module GeoJSON
 
       pull.read_end_object
 
-      return unless coordinates
+      {object_type, coordinates}
+    end
 
+    private def self.create_object(object_type, coordinates)
       case object_type
       when "Point"
         point(coordinates)

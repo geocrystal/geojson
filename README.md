@@ -10,6 +10,7 @@ This library contains:
 
 - Functions for encoding and decoding GeoJSON formatted data
 - Classes for all GeoJSON Objects
+- Allow "foreign members" in a GeoJSON Objects
 
 ## Installation
 
@@ -386,6 +387,34 @@ feature_collection.to_json
     }
   ]
 }
+```
+
+## Foreign Members
+
+For example, in the `Pont` object shown below
+
+```json
+{
+  "type": "Point",
+  "coordinates": [-80.1347334, 25.7663562],
+  "title": "Example Point"
+}
+```
+
+the name/value pair of `"title": "Example Point"` is a foreign member.
+
+GeoJSON semantics do not apply to foreign members and their descendants, regardless of their names and values.
+
+If the GeoJSON type include foreign members, this properties in the JSON document will be stored in a `Hash(String, JSON::Any)`.
+On serialization, any keys inside `json_unmapped` will be serialized and appended to the current json object.
+
+```crystal
+point = GeoJSON::Point.new([-80.1347334, 25.7663562])
+
+json_unmapped = Hash(String, JSON::Any).new
+json_unmapped["title"] = JSON::Any.new("Example Point")
+
+point.json_unmapped = json_unmapped
 ```
 
 ## Contributing

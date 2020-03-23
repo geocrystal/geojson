@@ -45,7 +45,6 @@ describe GeoJSON::MultiPolygon do
       polygon2 = GeoJSON::Polygon.new(ring2)
 
       multi_polygon = GeoJSON::MultiPolygon.new([polygon1, polygon2])
-      puts multi_polygon.to_json
 
       multi_polygon.should be_a(GeoJSON::MultiPolygon)
       multi_polygon.type.should eq("MultiPolygon")

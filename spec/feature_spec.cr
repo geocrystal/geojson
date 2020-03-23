@@ -39,6 +39,18 @@ describe GeoJSON::Feature do
     },
   }.to_json
 
+  feature_with_foreign_members_json = {
+    "type"     => "Feature",
+    "geometry" => {
+      "type"        => "Point",
+      "coordinates" => point_coordinates,
+    },
+    "properties" => {
+      "prop0" => "value0",
+    },
+    "title" => "Example Feature",
+  }.to_json
+
   describe "json parser" do
     it "parses feture point json" do
       feature = GeoJSON::Feature.from_json(feature_point_json)
@@ -54,6 +66,15 @@ describe GeoJSON::Feature do
       feature.geometry.should be_a(GeoJSON::Polygon)
       polygon = feature.geometry.not_nil!.as(GeoJSON::Polygon)
       polygon.coordinates.should be_a(Array(Array(GeoJSON::Coordinates)))
+    end
+
+    it "parses feture with foreign json member" do
+      feature = GeoJSON::Feature.from_json(feature_with_foreign_members_json)
+
+      feature.should be_a(GeoJSON::Feature)
+      feature.type.should eq("Feature")
+      feature.json_unmapped["title"].should eq("Example Feature")
+      feature.geometry.should be_a(GeoJSON::Point)
     end
   end
 
@@ -85,6 +106,20 @@ describe GeoJSON::Feature do
       feature.geometry.should eq(geometry)
       feature.properties.should eq(properties)
       feature.id.should eq(1)
+    end
+
+    it "initialize Feature with foreign member" do
+      geometry = GeoJSON::Point.new(point_coordinates)
+      properties = {"prop0" => "value0"} of String => JSON::Any::Type
+
+      json_unmapped = Hash(String, JSON::Any).new
+      json_unmapped["title"] = JSON::Any.new("Example Feature")
+
+      feature = GeoJSON::Feature.new(geometry, properties)
+      feature.json_unmapped = json_unmapped
+
+      feature.geometry.should eq(geometry)
+      feature.to_json.should eq(feature_with_foreign_members_json)
     end
   end
 

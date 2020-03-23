@@ -90,6 +90,17 @@ describe GeoJSON::Point do
       point.to_json.should eq(point_json)
     end
 
+    it "creates Point with foreign member" do
+      point = GeoJSON::Point.new(position)
+
+      json_unmapped = Hash(String, JSON::Any).new
+      json_unmapped["title"] = JSON::Any.new("Example Point")
+
+      point.json_unmapped = json_unmapped
+
+      point.to_json.should eq("{\"type\":\"Point\",\"coordinates\":[-80.1347334,25.7663562],\"title\":\"Example Point\"}")
+    end
+
     it "raises an exception if coordinates are invalid" do
       expect_raises GeoJSON::Exception, "coordinates need to have have two or three elements" do
         GeoJSON::Point.new(invalid_position)

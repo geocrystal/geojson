@@ -13,6 +13,7 @@ module GeoJSON
   # * A GeoJSON object MAY have other members
   abstract class Object
     include JSON::Serializable
+    include JSON::Serializable::Unmapped
 
     # All possible GeoJSON types.
     alias Type = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon

@@ -5,11 +5,11 @@ module GeoJSON
 
     getter coordinates : Array(Array(Coordinates))
 
-    def initialize(@coordinates : Array(Array(Coordinates)))
+    def initialize(@coordinates : Array(Array(Coordinates)), *, @bbox = nil)
       raise_if_invalid
     end
 
-    def initialize(coordinates : Array(Array(Point)))
+    def initialize(coordinates : Array(Array(Point)), *, @bbox = nil)
       @coordinates = coordinates.map do |ring|
         ring.map { |point| point.coordinates }
       end
@@ -17,7 +17,7 @@ module GeoJSON
       raise_if_invalid
     end
 
-    def initialize(coordinates : Array(Array(Array(Float64))))
+    def initialize(coordinates : Array(Array(Array(Float64))), *, @bbox = nil)
       @coordinates = coordinates.map do |ring|
         ring.map { |e| Coordinates.new(e) }
       end

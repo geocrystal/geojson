@@ -5,7 +5,7 @@ module GeoJSON
 
     getter geometries : Array(GeoJSON::Object::Type) = Array(GeoJSON::Object::Type).new
 
-    def initialize(geometries : Array(GeoJSON::Object::Type))
+    def initialize(geometries : Array(GeoJSON::Object::Type), *, @bbox = nil)
       @geometries += geometries
     end
 

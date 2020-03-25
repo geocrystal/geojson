@@ -7,11 +7,11 @@ module GeoJSON
 
     delegate "[]", to: coordinates
 
-    def initialize(coordinates : Array(LineString))
+    def initialize(coordinates : Array(LineString), *, @bbox = nil)
       @coordinates = coordinates.map(&.coordinates)
     end
 
-    def initialize(coordinates : Array(Array(Array(Float64))))
+    def initialize(coordinates : Array(Array(Array(Float64))), *, @bbox = nil)
       @coordinates = coordinates.map do |arry|
         LineString.new(arry).coordinates
       end

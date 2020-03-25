@@ -5,7 +5,7 @@ module GeoJSON
 
     getter coordinates : Coordinates
 
-    def initialize(*, longitude, latitude, altitude = nil)
+    def initialize(*, longitude, latitude, altitude = nil, @bbox = nil)
       if altitude
         @coordinates = Coordinates.new([longitude, latitude, altitude])
       else
@@ -13,10 +13,10 @@ module GeoJSON
       end
     end
 
-    def initialize(@coordinates : GeoJSON::Coordinates)
+    def initialize(@coordinates : GeoJSON::Coordinates, *, @bbox = nil)
     end
 
-    def initialize(coordinates : Array(Float64))
+    def initialize(coordinates : Array(Float64), *, @bbox = nil)
       @coordinates = GeoJSON::Coordinates.new(coordinates)
     end
 

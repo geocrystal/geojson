@@ -7,17 +7,17 @@ module GeoJSON
 
     delegate "[]", to: coordinates
 
-    def initialize(@coordinates : Array(Coordinates))
+    def initialize(@coordinates : Array(Coordinates), *, @bbox = nil)
       raise_if_invalid
     end
 
-    def initialize(coordinates : Array(Point))
+    def initialize(coordinates : Array(Point), *, @bbox = nil)
       @coordinates = coordinates.map { |point| point.coordinates }
 
       raise_if_invalid
     end
 
-    def initialize(coordinates : Array(Array(Float64)))
+    def initialize(coordinates : Array(Array(Float64)), *, @bbox = nil)
       @coordinates = coordinates.map { |e| Coordinates.new(e) }
 
       raise_if_invalid

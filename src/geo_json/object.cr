@@ -15,6 +15,8 @@ module GeoJSON
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
+    getter bbox : Array(Float64)?
+
     # All possible GeoJSON types.
     alias Type = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon
 

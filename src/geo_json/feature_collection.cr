@@ -5,7 +5,7 @@ module GeoJSON
 
     getter features : Array(Feature)
 
-    def initialize(@features : Array(Feature))
+    def initialize(@features : Array(Feature), *, @bbox = nil)
     end
   end
 end

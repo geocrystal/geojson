@@ -13,7 +13,7 @@ module GeoJSON
 
     getter id : String | Int32 | Nil
 
-    def initialize(@geometry, @properties = nil, *, @id = nil)
+    def initialize(@geometry, @properties = nil, *, @id = nil, @bbox = nil)
     end
   end
 end

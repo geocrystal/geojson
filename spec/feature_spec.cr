@@ -14,6 +14,8 @@ describe GeoJSON::Feature do
     [100.0, 0.0],
   ]
 
+  bbox = [-10.0, -10.0, 10.0, 10.0]
+
   feature_point_json = {
     "type"     => "Feature",
     "geometry" => {
@@ -51,6 +53,15 @@ describe GeoJSON::Feature do
     "title" => "Example Feature",
   }.to_json
 
+  feature_with_bbox_json = {
+    "type"     => "Feature",
+    "bbox"     => bbox,
+    "geometry" => {
+      "type"        => "Polygon",
+      "coordinates" => [ring],
+    },
+  }.to_json
+
   describe "json parser" do
     it "parses feture point json" do
       feature = GeoJSON::Feature.from_json(feature_point_json)
@@ -75,6 +86,13 @@ describe GeoJSON::Feature do
       feature.type.should eq("Feature")
       feature.json_unmapped["title"].should eq("Example Feature")
       feature.geometry.should be_a(GeoJSON::Point)
+    end
+
+    it "parses feture with bbox" do
+      feature = GeoJSON::Feature.from_json(feature_with_bbox_json)
+
+      feature.bbox.should be_a(Array(Float64))
+      feature.bbox.should eq(bbox)
     end
   end
 
@@ -120,6 +138,14 @@ describe GeoJSON::Feature do
 
       feature.geometry.should eq(geometry)
       feature.to_json.should eq(feature_with_foreign_members_json)
+    end
+
+    it "initialize Feature with bbox" do
+      geometry = GeoJSON::Point.new(point_coordinates)
+
+      feature = GeoJSON::Feature.new(geometry, bbox: bbox)
+
+      feature.bbox.should eq(bbox)
     end
   end
 

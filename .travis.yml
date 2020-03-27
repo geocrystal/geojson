@@ -1,8 +1,13 @@
 language: crystal
 
+crystal:
+  - latest
+  - nightly
+
 script:
   - crystal spec
   - crystal tool format --check
+  - bin/ameba
   - crystal docs
 
 deploy:

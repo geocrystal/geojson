@@ -1,8 +1,8 @@
 # GeoJSON
 
-[![Build Status](https://travis-ci.org/geocrystal/geo_json.svg?branch=master)](https://travis-ci.org/geocrystal/geo_json)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://geocrystal.github.io/geo_json/)
-[![License](https://img.shields.io/github/license/geocrystal/geo_json.svg)](https://github.com/geocrystal/geo_json/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/geocrystal/geojson.svg?branch=master)](https://travis-ci.org/geocrystal/geojson)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://geocrystal.github.io/geojson/)
+[![License](https://img.shields.io/github/license/geocrystal/geojson.svg)](https://github.com/geocrystal/geojson/blob/master/LICENSE)
 
 Crystal library for reading and writing [GeoJSON](https://tools.ietf.org/html/rfc7946)
 
@@ -18,14 +18,14 @@ Add the dependency to your `shard.yml`:
 
 ```yaml
 dependencies:
-  geo_json:
-    github: geocrystal/geo_json
+  geojson:
+    github: geocrystal/geojson
 ```
 
 and run `shards install`
 
 ```crystal
-require "geo_json"
+require "geojson"
 ```
 
 ## Position
@@ -419,7 +419,7 @@ point.json_unmapped = json_unmapped
 
 ## Contributing
 
-1. Fork it (<https://github.com/geocrystal/geo_json/fork>)
+1. Fork it (<https://github.com/geocrystal/geojson/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -1,6 +1,7 @@
 # GeoJSON
 
 [![Build Status](https://travis-ci.org/geocrystal/geojson.svg?branch=master)](https://travis-ci.org/geocrystal/geojson)
+![Crystal CI](https://github.com/geocrystal/geojson/workflows/Crystal%20CI/badge.svg)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://geocrystal.github.io/geojson/)
 [![License](https://img.shields.io/github/license/geocrystal/geojson.svg)](https://github.com/geocrystal/geojson/blob/master/LICENSE)
 

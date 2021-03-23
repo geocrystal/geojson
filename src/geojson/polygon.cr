@@ -1,14 +1,22 @@
 module GeoJSON
-  # https://tools.ietf.org/html/rfc7946#section-3.1.6
+  # A `Polygon` is a `Geometry` representing a closed geometric figure in
+  # geographic space with optional holes within it.
+  #
+  # This class corresponds to the [GeoJSON Polygon](https://tools.ietf.org/html/rfc7946#section-3.1.6).
   class Polygon < Object
+    # Gets this Polygon's GeoJSON type ("Polygon")
     getter type : String = "Polygon"
 
+    # Returns this Polygon's linear ring coordinates.
     getter coordinates : Array(Array(Coordinates))
 
+    # Creates a new `Polygon` with the given *coordinates* and optional bounding
+    # box *bbox*.
     def initialize(@coordinates : Array(Array(Coordinates)), *, @bbox = nil)
       raise_if_invalid
     end
 
+    # :ditto:
     def initialize(coordinates : Array(Array(Point)), *, @bbox = nil)
       @coordinates = coordinates.map do |ring|
         ring.map { |point| point.coordinates }
@@ -17,6 +25,7 @@ module GeoJSON
       raise_if_invalid
     end
 
+    # :ditto:
     def initialize(coordinates : Array(Array(Array(Float64))), *, @bbox = nil)
       @coordinates = coordinates.map do |ring|
         ring.map { |e| Coordinates.new(e) }

@@ -7,7 +7,7 @@ authors:
 description: |
   Crystal library for reading and writing GeoJSON
 
-crystal: ">= 0.35.1"
+crystal: ">= 1.0.0"
 
 development_dependencies:
   ameba:

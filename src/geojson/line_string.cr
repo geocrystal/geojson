@@ -21,7 +21,7 @@ module GeoJSON
 
     # :ditto:
     def initialize(coordinates : Array(Point), *, @bbox = nil)
-      @coordinates = coordinates.map { |point| point.coordinates }
+      @coordinates = coordinates.map(&.coordinates)
 
       raise_if_invalid
     end

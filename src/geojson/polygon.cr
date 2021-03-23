@@ -19,7 +19,7 @@ module GeoJSON
     # :ditto:
     def initialize(coordinates : Array(Array(Point)), *, @bbox = nil)
       @coordinates = coordinates.map do |ring|
-        ring.map { |point| point.coordinates }
+        ring.map(&.coordinates)
       end
 
       raise_if_invalid

@@ -69,8 +69,8 @@ describe GeoJSON::FeatureCollection do
       {
         "type"     => "Feature",
         "geometry" => {
-          "type"      => "LineString",
-          "coordinates": line_coordinates,
+          "type"        => "LineString",
+          "coordinates" => line_coordinates,
         },
         "properties" => {
           "prop0" => "value0",

@@ -12,10 +12,19 @@ module GeoJSON
     end
 
     # Deserializes a `Coordinates` from the given JSON *parser*.
-    def initialize(parser : JSON::PullParser)
-      @coordinates = Array(Float64).new(parser)
+    def self.new(parser : JSON::PullParser)
+      coordinates = Array(Float64).new(parser)
 
-      raise_if_invalid
+      new(coordinates)
+    end
+
+    # Creates a new `Coordinates` with the given *longitude*, *latitude* and *altitude*.
+    def self.new(longitude : Float64, latitude : Float64, altitude : Float64? = nil)
+      if altitude
+        new([longitude, latitude, altitude])
+      else
+        new([longitude, latitude])
+      end
     end
 
     # Gets this Coordinates' longitude in decimal degrees according to WGS84.

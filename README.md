@@ -391,7 +391,7 @@ feature_collection.to_json
 
 ## Foreign Members
 
-For example, in the `Pont` object shown below
+For example, in the `Point` object shown below
 
 ```json
 {

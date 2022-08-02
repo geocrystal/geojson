@@ -92,7 +92,7 @@ point1 = GeoJSON::Point.new(longitude: 100.0, latitude: 0.0)
 point2 = GeoJSON::Point.new(longitude: 101.0, latitude: 1.0)
 
 multi_point = GeoJSON::MultiPoint.new([point1, point2])
-multi_point.json
+multi_point.to_json
 ```
 
 ```json

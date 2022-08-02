@@ -42,6 +42,19 @@ describe GeoJSON::Point do
   end
 
   describe ".new" do
+    it "creates Point with arguments" do
+      point = GeoJSON::Point.new(longitude, latitude)
+
+      point.should be_a(GeoJSON::Point)
+      point.type.should eq("Point")
+      point.coordinates.should be_a(GeoJSON::Coordinates)
+      point.longitude.should eq(longitude)
+      point.latitude.should eq(latitude)
+      point.altitude.should be_nil
+
+      point.to_json.should eq(point_json)
+    end
+
     it "creates Point" do
       point = GeoJSON::Point.new(longitude: longitude, latitude: latitude)
 

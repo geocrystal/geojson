@@ -12,12 +12,8 @@ module GeoJSON
 
     # Creates a new `Point` at the given *longitude*, *latitude*, and optional
     # *altitude*, and with optional bounding box *bbox*.
-    def initialize(*, longitude, latitude, altitude = nil, @bbox = nil)
-      if altitude
-        @coordinates = Coordinates.new([longitude, latitude, altitude])
-      else
-        @coordinates = Coordinates.new([longitude, latitude])
-      end
+    def initialize(longitude, latitude, altitude = nil, @bbox = nil)
+      @coordinates = Coordinates.new(longitude: longitude, latitude: latitude, altitude: altitude)
     end
 
     # Creates a new `Point` with the given *coordinates* and optional bounding

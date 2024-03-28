@@ -1,6 +1,6 @@
 # GeoJSON
 
-![Crystal CI](https://github.com/geocrystal/geojson/workflows/Crystal%20CI/badge.svg)
+[![Crystal CI](https://github.com/geocrystal/geojson/actions/workflows/crystal.yml/badge.svg)](https://github.com/geocrystal/geojson/actions/workflows/crystal.yml)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://geocrystal.github.io/geojson/)
 [![License](https://img.shields.io/github/license/geocrystal/geojson.svg)](https://github.com/geocrystal/geojson/blob/master/LICENSE)
 

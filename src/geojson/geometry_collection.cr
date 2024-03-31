@@ -54,5 +54,22 @@ module GeoJSON
 
       geometries
     end
+
+    def bbox
+      return @bbox if @bbox
+
+      result = [Float64::INFINITY, Float64::INFINITY, -Float64::INFINITY, -Float64::INFINITY]
+
+      geometries.each do |object|
+        object.bbox.try do |object_bbox|
+          result[0] = object_bbox[0] if result[0] > object_bbox[0]
+          result[1] = object_bbox[1] if result[1] > object_bbox[1]
+          result[2] = object_bbox[2] if result[2] < object_bbox[2]
+          result[3] = object_bbox[3] if result[3] < object_bbox[3]
+        end
+      end
+
+      result
+    end
   end
 end

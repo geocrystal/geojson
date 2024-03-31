@@ -22,5 +22,11 @@ module GeoJSON
     # *properties*, *id*, and bounding box *bbox*.
     def initialize(@geometry, @properties = nil, *, @id = nil, @bbox = nil)
     end
+
+    def bbox
+      return @bbox if @bbox
+
+      geometry.try(&.bbox)
+    end
   end
 end

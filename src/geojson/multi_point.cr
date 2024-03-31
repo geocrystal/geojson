@@ -34,5 +34,20 @@ module GeoJSON
     def <<(coordinate : Array(Float64))
       @coordinates << Point.new(coordinate).coordinates
     end
+
+    def bbox
+      return @bbox if @bbox
+
+      result = [Float64::INFINITY, Float64::INFINITY, -Float64::INFINITY, -Float64::INFINITY]
+
+      @coordinates.each do |coord|
+        result[0] = coord[0] if result[0] > coord[0]
+        result[1] = coord[1] if result[1] > coord[1]
+        result[2] = coord[0] if result[2] < coord[0]
+        result[3] = coord[1] if result[3] < coord[1]
+      end
+
+      result
+    end
   end
 end

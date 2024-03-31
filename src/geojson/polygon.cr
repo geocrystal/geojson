@@ -34,6 +34,23 @@ module GeoJSON
       raise_if_invalid
     end
 
+    def bbox
+      return @bbox if @bbox
+
+      result = [Float64::INFINITY, Float64::INFINITY, -Float64::INFINITY, -Float64::INFINITY]
+
+      @coordinates.each do |ring|
+        ring.each do |coord|
+          result[0] = coord[0] if result[0] > coord[0]
+          result[1] = coord[1] if result[1] > coord[1]
+          result[2] = coord[0] if result[2] < coord[0]
+          result[3] = coord[1] if result[3] < coord[1]
+        end
+      end
+
+      result
+    end
+
     private def raise_if_invalid
       if coordinates.empty?
         "a number was found where a coordinate array should have been found: this needs to be nested more deeply"

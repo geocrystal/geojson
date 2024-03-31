@@ -26,6 +26,12 @@ module GeoJSON
       @coordinates = GeoJSON::Coordinates.new(coordinates)
     end
 
+    def bbox
+      return @bbox if @bbox
+
+      [coordinates[0], coordinates[1], coordinates[0], coordinates[1]]
+    end
+
     # Gets this Point's longitude in decimal degrees according to WGS84.
     delegate longitude, to: coordinates
     # Gets this Point's latitude in decimal degrees according to WGS84.

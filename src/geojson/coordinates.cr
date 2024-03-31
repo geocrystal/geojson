@@ -27,6 +27,8 @@ module GeoJSON
       end
     end
 
+    delegate "[]", to: coordinates
+
     # Gets this Coordinates' longitude in decimal degrees according to WGS84.
     def longitude
       coordinates[0]

@@ -22,6 +22,9 @@ module GeoJSON
 
     abstract def type : String
 
+    # Calculates the bounding box for any GeoJSON object, including `FeatureCollection`.
+    abstract def bbox
+
     use_json_discriminator "type", {
       Point:           Point,
       MultiPoint:      MultiPoint,

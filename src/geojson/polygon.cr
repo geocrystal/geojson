@@ -53,7 +53,6 @@ module GeoJSON
 
     private def raise_if_invalid
       if coordinates.empty?
-        "a number was found where a coordinate array should have been found: this needs to be nested more deeply"
         raise GeoJSON::Exception.new("a coordinate array should have been found")
       end
 

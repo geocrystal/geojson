@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.17.1">
+<meta name="crystal_docs.project_version" content="0.6.0">
+<meta name="crystal_docs.project_name" content="geojson">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="geojson">
+  <title>geojson 0.6.0</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          geojson
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.6.0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="geojson/GeoJSON" data-name="geojson">
+      <a href="GeoJSON.html">GeoJSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="geojson/GeoJSON/Coordinates" data-name="geojson::coordinates">
+      <a href="GeoJSON/Coordinates.html">Coordinates</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Exception" data-name="geojson::exception">
+      <a href="GeoJSON/Exception.html">Exception</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Feature" data-name="geojson::feature">
+      <a href="GeoJSON/Feature.html">Feature</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/FeatureCollection" data-name="geojson::featurecollection">
+      <a href="GeoJSON/FeatureCollection.html">FeatureCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/GeometryCollection" data-name="geojson::geometrycollection">
+      <a href="GeoJSON/GeometryCollection.html">GeometryCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/LineString" data-name="geojson::linestring">
+      <a href="GeoJSON/LineString.html">LineString</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/MultiLineString" data-name="geojson::multilinestring">
+      <a href="GeoJSON/MultiLineString.html">MultiLineString</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/MultiPoint" data-name="geojson::multipoint">
+      <a href="GeoJSON/MultiPoint.html">MultiPoint</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/MultiPolygon" data-name="geojson::multipolygon">
+      <a href="GeoJSON/MultiPolygon.html">MultiPolygon</a>
+      
+    </li>
+  
+  <li class="parent " data-id="geojson/GeoJSON/Object" data-name="geojson::object">
+      <a href="GeoJSON/Object.html">Object</a>
+      
+        <ul>
+  
+  <li class=" " data-id="geojson/GeoJSON/Object/Type" data-name="geojson::object::type">
+      <a href="GeoJSON/Object/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Point" data-name="geojson::point">
+      <a href="GeoJSON/Point.html">Point</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Polygon" data-name="geojson::polygon">
+      <a href="GeoJSON/Polygon.html">Polygon</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="geo-json" class="anchor" href="#geo-json">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>GeoJSON</h1>
+<p><a href="https://github.com/geocrystal/geojson/actions/workflows/crystal.yml"><img src="https://github.com/geocrystal/geojson/actions/workflows/crystal.yml/badge.svg" alt="Crystal CI" /></a>
+<a href="https://geocrystal.github.io/geojson/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a>
+<a href="https://github.com/geocrystal/geojson/blob/master/LICENSE"><img src="https://img.shields.io/github/license/geocrystal/geojson.svg" alt="License" /></a></p>
+<p>Crystal library for reading and writing <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a></p>
+<p>This library contains:</p>
+<ul>
+<li>Functions for encoding and decoding GeoJSON formatted data</li>
+<li>Classes for all GeoJSON Objects</li>
+<li>Allow &quot;foreign members&quot; in a GeoJSON Objects</li>
+</ul>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  geojson:
+    github: geocrystal/geojson</code></pre>
+<p>and run <code>shards install</code></p>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;geojson&quot;</span></code></pre>
+<h2><a id="position" class="anchor" href="#position">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Position</h2>
+<p>A position is the fundamental geometry construct.  The <code>coordinates</code> member of a Geometry object is composed of either:</p>
+<ul>
+<li>one position in the case of a <code>Point</code> geometry</li>
+<li>an array of positions in the case of a <code>LineString</code> or <code>MultiPoint</code> geometry</li>
+<li>an array of <code>LineString</code> or linear ring coordinates in the case of a <code>Polygon</code> or <code>MultiLineString</code> geometry</li>
+<li>an array of <code>Polygon</code> coordinates in the case of a <code>MultiPolygon</code> geometry</li>
+</ul>
+<p>A position is an array of <code>Float64</code>.</p>
+<p>There <strong>must</strong> be two or more elements. The first two elements are <code>longitude</code> and <code>latitude</code>. <code>Altitude</code> <strong>may</strong> be included as an optional third element.</p>
+<pre><code class="language-crystal">postition <span class="o">=</span> [<span class="n">-80.1347334</span>, <span class="n">25.7663562</span>, <span class="n">0.0</span>]
+point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new(position)</code></pre>
+<h2><a id="geo-json-types" class="anchor" href="#geo-json-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>GeoJSON types</h2>
+<h3><a id="point" class="anchor" href="#point">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Point</h3>
+<p>A GeoJSON point looks like this:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;Point&quot;,
+  &quot;coordinates&quot;: [-80.1347334, 25.7663562]
+}</code></pre>
+<p>It is important to note that coordinates is in the format <code>[longitude, latitude]</code>.
+Longitude comes before latitude in GeoJSON.</p>
+<p>For type <code>Point</code>, the <code>coordinates</code> member is a single position.</p>
+<p>Serialize geometry type:</p>
+<pre><code class="language-crystal">point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new([<span class="n">-80.1347334</span>, <span class="n">25.7663562</span>])
+json <span class="o">=</span> point.to_json
+<span class="c"># =&gt; {&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-80.1347334,25.7663562]}</span></code></pre>
+<p>Deserialize geometry type:</p>
+<pre><code class="language-crystal">point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.from_json(json)
+<span class="c"># =&gt; #&lt;GeoJSON::Point:0x7f1444af9920&gt;</span>
+point.longitude
+<span class="c"># =&gt; -80.1347334</span>
+point.latitude
+<span class="c"># =&gt; 25.7663562</span></code></pre>
+<h3><a id="multi-point" class="anchor" href="#multi-point">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>MultiPoint</h3>
+<p>For type <code>MultiPoint</code>, the <code>coordinates</code> member is an array of positions.</p>
+<pre><code class="language-crystal">point1 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new(longitude: <span class="n">100.0</span>, latitude: <span class="n">0.0</span>)
+point2 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new(longitude: <span class="n">101.0</span>, latitude: <span class="n">1.0</span>)
+
+multi_point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">MultiPoint</span>.new([point1, point2])
+multi_point.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;:&quot;MultiPoint&quot;,
+  &quot;coordinates&quot;:[[100.0, 0.0], [101.0, 1.0]]
+}</code></pre>
+<h3><a id="line-string" class="anchor" href="#line-string">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>LineString</h3>
+<p>For type <code>LineString</code>, the <code>coordinates</code> member is an array of two or more positions.</p>
+<pre><code class="language-crystal">line_string <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">LineString</span>.new [[<span class="n">-124.2</span>, <span class="n">42.0</span>], [<span class="n">-120.0</span>, <span class="n">42.0</span>]]
+line_string.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;LineString&quot;,
+  &quot;coordinates&quot;: [[-124.2, 42.0], [-120.0, 42.0]]
+}</code></pre>
+<h3><a id="multi-line-string" class="anchor" href="#multi-line-string">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>MultiLineString</h3>
+<p>For type <code>MultiLineString</code>, the <code>coordinates</code> member is an array of <code>LineString</code> coordinate arrays.</p>
+<pre><code class="language-crystal">line_string1 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">LineString</span>.new([[<span class="n">100.0</span>, <span class="n">0.0</span>], [<span class="n">101.0</span>, <span class="n">1.0</span>]])
+line_string2 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">LineString</span>.new([[<span class="n">102.0</span>, <span class="n">2.0</span>], [<span class="n">103.0</span>, <span class="n">3.0</span>]])
+
+multi_line_string <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">MultiLineString</span>.new([line_string1, line_string2])</code></pre>
+<pre><code class="language-crystal">multi_line_string <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">MultiLineString</span>.new([
+  [[<span class="n">100.0</span>, <span class="n">0.0</span>], [<span class="n">101.0</span>, <span class="n">1.0</span>]],
+  [[<span class="n">102.0</span>, <span class="n">2.0</span>], [<span class="n">103.0</span>, <span class="n">3.0</span>]],
+])
+multi_line_string.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;:&quot;MultiLineString&quot;,
+  &quot;coordinates&quot;:[
+    [
+      [100.0, 0.0],
+      [101.0, 1.0]
+    ],
+    [
+      [102.0, 2.0],
+      [103.0, 3.0]
+    ]
+  ]
+}</code></pre>
+<h3><a id="polygon" class="anchor" href="#polygon">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Polygon</h3>
+<p>GeoJSON polygons represent closed shapes on a map, like triangles, squares, dodecagons, or any shape with a fixed number of sides.</p>
+<p>To specify a constraint specific to <code>Polygon</code>, it is useful to introduce the concept of a linear ring:</p>
+<ul>
+<li>A linear ring is a closed <code>LineString</code> with four or more positions.</li>
+<li>The first and last positions are equivalent, and they <strong>must</strong> contain identical values; their representation <strong>should</strong> also be identical.</li>
+<li>A linear ring is the boundary of a surface or the boundary of a hole in a surface.</li>
+<li>A linear ring <strong>must</strong> follow the right-hand rule with respect to the area it bounds, i.e., exterior rings are counterclockwise, and holes are clockwise.</li>
+</ul>
+<p>The <code>Polygon</code> geometry type definition as follows:</p>
+<ul>
+<li>For type <code>Polygon</code>, the <code>coordinates</code> member <strong>must</strong> be an array of linear ring coordinate arrays.</li>
+<li>For <code>Polygon</code> with more than one of these rings, the first <strong>must</strong> be the exterior ring, and any others <strong>must</strong> be interior rings. The exterior ring bounds the surface, and the interior rings (if present) bound holes within the surface.</li>
+</ul>
+<pre><code class="language-crystal">polygon <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Polygon</span>.new([
+  [[<span class="n">-10.0</span>, <span class="n">-10.0</span>], [<span class="n">10.0</span>, <span class="n">-10.0</span>], [<span class="n">10.0</span>, <span class="n">10.0</span>], [<span class="n">-10.0</span>,<span class="n">-10.0</span>]],
+  [[<span class="n">-1.0</span>, <span class="n">-2.0</span>], [<span class="n">3.0</span>, <span class="n">-2.0</span>], [<span class="n">3.0</span>, <span class="n">2.0</span>], [<span class="n">-1.0</span>,<span class="n">-2.0</span>]]
+])
+polygon.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;Polygon&quot;,
+  &quot;coordinates&quot;: [
+    [
+      [-10.0, -10.0],
+      [10.0, -10.0],
+      [10.0,10.0],
+      [-10.0,-10.0]
+    ],
+    [
+      [-1.0, -2.0],
+      [3.0, -2.0],
+      [3.0, 2.0],
+      [-1.0,-2.0]
+    ]
+  ]
+}</code></pre>
+<h3><a id="multi-polygon" class="anchor" href="#multi-polygon">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>MultiPolygon</h3>
+<p>For type <code>MultiPolygon</code>, the <code>coordinates</code> member is an array of <code>Polygon</code> coordinate arrays.</p>
+<pre><code class="language-crystal">polygon1 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Polygon</span>.new(
+  [[[<span class="n">102.0</span>, <span class="n">2.0</span>], [<span class="n">103.0</span>, <span class="n">2.0</span>], [<span class="n">103.0</span>, <span class="n">3.0</span>], [<span class="n">102.0</span>, <span class="n">3.0</span>], [<span class="n">102.0</span>, <span class="n">2.0</span>]]]
+)
+polygon2 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Polygon</span>.new(
+  [[[<span class="n">100.0</span>, <span class="n">0.0</span>], [<span class="n">101.0</span>, <span class="n">0.0</span>], [<span class="n">101.0</span>, <span class="n">1.0</span>], [<span class="n">100.0</span>, <span class="n">1.0</span>], [<span class="n">100.0</span>, <span class="n">0.0</span>]]]
+)
+
+multi_polygon <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">MultiPolygon</span>.new([polygon1, polygon2])
+multi_polygon.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;:&quot;MultiPolygon&quot;,
+  &quot;coordinates&quot;:[
+    [
+      [
+        [102.0,2.0],
+        [103.0,2.0],
+        [103.0,3.0],
+        [102.0,3.0],
+        [102.0,2.0]
+      ]
+    ],
+    [
+      [
+        [100.0,0.0],
+        [101.0,0.0],
+        [101.0,1.0],
+        [100.0,1.0],
+        [100.0,0.0]
+      ]
+    ]
+  ]
+}</code></pre>
+<h3><a id="geometry-collection" class="anchor" href="#geometry-collection">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>GeometryCollection</h3>
+<p>A GeoJSON object with type <code>GeometryCollection</code> is a Geometry object.</p>
+<p>A <code>GeometryCollection</code> has a member with the name <code>geometries</code>. The
+value of <code>geometries</code> is an array. Each element of this array is a
+GeoJSON Geometry object.</p>
+<pre><code class="language-crystal">point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new([<span class="n">100.0</span>, <span class="n">0.0</span>])
+line_string <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">LineString</span>.new([
+  [<span class="n">101.0</span>, <span class="n">0.0</span>],
+  [<span class="n">102.0</span>, <span class="n">1.0</span>],
+])
+polygon <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Polygon</span>.new([
+  [
+    [<span class="n">100.0</span>, <span class="n">0.0</span>],
+    [<span class="n">101.0</span>, <span class="n">0.0</span>],
+    [<span class="n">101.0</span>, <span class="n">1.0</span>],
+    [<span class="n">100.0</span>, <span class="n">1.0</span>],
+    [<span class="n">100.0</span>, <span class="n">0.0</span>],
+  ],
+])
+
+geometry_collection <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">GeometryCollection</span>.new([point, line_string, polygon])
+geometry_collection.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;:&quot;GeometryCollection&quot;,
+  &quot;geometries&quot;:[
+    {
+      &quot;type&quot;:&quot;Point&quot;,
+      &quot;coordinates&quot;:[100.0,0.0]
+    },
+    {
+      &quot;type&quot;:&quot;LineString&quot;,
+      &quot;coordinates&quot;:[
+        [101.0,0.0],
+        [102.0,1.0]
+      ]
+    },
+    {
+      &quot;type&quot;:&quot;Polygon&quot;,
+      &quot;coordinates&quot;:[
+        [
+          [100.0,0.0],
+          [101.0,0.0],
+          [101.0,1.0],
+          [100.0,1.0],
+          [100.0,0.0]
+        ]
+      ]
+    }
+  ]
+}</code></pre>
+<h3><a id="feature" class="anchor" href="#feature">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Feature</h3>
+<p>A <code>Feature</code> object represents a spatially bounded thing. Every <code>Feature</code> object is a GeoJSON object no matter where it occurs in a GeoJSON text.</p>
+<ul>
+<li>A <code>Feature</code> object has a <code>&quot;type&quot;</code> member with the value <code>&quot;Feature&quot;</code>.</li>
+<li>A <code>Feature</code> object has a member with the name <code>&quot;geometry&quot;</code>. The value of the geometry member <strong>shall</strong> be either a Geometry object as defined above or, in the case that the <code>Feature</code> is unlocated, a JSON <code>null</code> value.</li>
+<li>A <code>Feature</code> object has a member with the name <code>&quot;properties&quot;</code>. The value of the properties member is an object (any JSON object or a JSON <code>null</code> value).</li>
+<li>If a <code>Feature</code> has a commonly used identifier, that identifier <strong>should</strong> be included as a member of the <code>Feature</code> object with the name <code>&quot;id&quot;</code>, and the value of this member is either a JSON string or number.</li>
+</ul>
+<pre><code class="language-crystal">point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new([<span class="n">-80.1347334</span>, <span class="n">25.7663562</span>])
+properties <span class="o">=</span> {<span class="s">&quot;color&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;red&quot;</span>} <span class="k">of</span> <span class="t">String</span> <span class="o">=&gt;</span> <span class="t">JSON</span><span class="t">::</span><span class="t">Any</span><span class="t">::</span><span class="t">Type</span>
+feature <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Feature</span>.new(point, properties, id: <span class="n">1</span>)
+feature.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;:&quot;Feature&quot;,
+  &quot;geometry&quot;:{
+    &quot;type&quot;:&quot;Point&quot;,
+    &quot;coordinates&quot;:[-80.1347334,25.7663562]
+  },
+  &quot;properties&quot;:{
+    &quot;color&quot;:&quot;red&quot;
+  },
+  &quot;id&quot;:1
+}</code></pre>
+<h3><a id="feature-collection" class="anchor" href="#feature-collection">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>FeatureCollection</h3>
+<p>A GeoJSON object with the type <code>&quot;FeatureCollection&quot;</code> is a <code>FeatureCollection</code> object. A <code>FeatureCollection</code> object has a member with the name <code>&quot;features&quot;</code>. The value of <code>&quot;features&quot;</code> is a JSON array. Each element of the array is a <code>Feature</code> object. It is possible for this array to be empty.</p>
+<pre><code class="language-crystal">feature1 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Feature</span>.new(
+  <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new([<span class="n">102.0</span>, <span class="n">0.5</span>]),
+  id: <span class="s">&quot;point&quot;</span>
+)
+
+feature2 <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Feature</span>.new(
+  <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Polygon</span>.new([
+    [
+      [<span class="n">100.0</span>, <span class="n">0.0</span>],
+      [<span class="n">101.0</span>, <span class="n">0.0</span>],
+      [<span class="n">101.0</span>, <span class="n">1.0</span>],
+      [<span class="n">100.0</span>, <span class="n">1.0</span>],
+      [<span class="n">100.0</span>, <span class="n">0.0</span>],
+    ],
+  ]),
+  <span class="k">type</span>: <span class="s">&quot;polygon&quot;</span>
+)
+
+feature_collection <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">FeatureCollection</span>.new([feature1, feature2])
+feature_collection.to_json</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;:&quot;FeatureCollection&quot;,
+  &quot;features&quot;:[
+    {
+      &quot;type&quot;:&quot;Feature&quot;,
+      &quot;geometry&quot;:{
+        &quot;type&quot;:&quot;Point&quot;,
+        &quot;coordinates&quot;:[102.0,0.5]
+      },
+      &quot;properties&quot;:null,
+      &quot;id&quot;:&quot;point&quot;
+    },
+    {
+      &quot;type&quot;:&quot;Feature&quot;,
+      &quot;geometry&quot;:{
+        &quot;type&quot;:&quot;Polygon&quot;,
+        &quot;coordinates&quot;:[
+          [
+            [100.0,0.0],
+            [101.0,0.0],
+            [101.0,1.0],
+            [100.0,1.0],
+            [100.0,0.0]
+          ]
+        ]
+      },
+      &quot;properties&quot;:null,
+      &quot;id&quot;:&quot;polygon&quot;
+    }
+  ]
+}</code></pre>
+<h2><a id="foreign-members" class="anchor" href="#foreign-members">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Foreign Members</h2>
+<p>For example, in the <code>Point</code> object shown below</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;Point&quot;,
+  &quot;coordinates&quot;: [-80.1347334, 25.7663562],
+  &quot;title&quot;: &quot;Example Point&quot;
+}</code></pre>
+<p>the name/value pair of <code>&quot;title&quot;: &quot;Example Point&quot;</code> is a foreign member.</p>
+<p>GeoJSON semantics do not apply to foreign members and their descendants, regardless of their names and values.</p>
+<p>If the GeoJSON type include foreign members, this properties in the JSON document will be stored in a <code>Hash(String, JSON::Any)</code>.
+On serialization, any keys inside <code>json_unmapped</code> will be serialized and appended to the current json object.</p>
+<pre><code class="language-crystal">point <span class="o">=</span> <span class="t">GeoJSON</span><span class="t">::</span><span class="t">Point</span>.new([<span class="n">-80.1347334</span>, <span class="n">25.7663562</span>])
+
+json_unmapped <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">JSON</span><span class="t">::</span><span class="t">Any</span>).new
+json_unmapped[<span class="s">&quot;title&quot;</span>] <span class="o">=</span> <span class="t">JSON</span><span class="t">::</span><span class="t">Any</span>.new(<span class="s">&quot;Example Point&quot;</span>)
+
+point.json_unmapped <span class="o">=</span> json_unmapped</code></pre>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Fork it (<a href="https://github.com/geocrystal/geojson/fork">https://github.com/geocrystal/geojson/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+<ul>
+<li><a href="https://github.com/mamantoha">Anton Maminov</a> - creator and maintainer</li>
+</ul>
+<h2><a id="license" class="anchor" href="#license">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>License</h2>
+<p>Copyright: 2020-2024 Anton Maminov (anton.maminov@gmail.com)</p>
+<p>This library is distributed under the MIT license. Please see the LICENSE file.</p>
+</div>
+</body>
+</html>

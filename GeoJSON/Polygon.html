@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.17.1">
+<meta name="crystal_docs.project_version" content="0.6.0">
+<meta name="crystal_docs.project_name" content="geojson">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="geojson">
+  <title>GeoJSON::Polygon - geojson 0.6.0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          geojson
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.6.0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="geojson/GeoJSON" data-name="geojson">
+      <a href="../GeoJSON.html">GeoJSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="geojson/GeoJSON/Coordinates" data-name="geojson::coordinates">
+      <a href="../GeoJSON/Coordinates.html">Coordinates</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Exception" data-name="geojson::exception">
+      <a href="../GeoJSON/Exception.html">Exception</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Feature" data-name="geojson::feature">
+      <a href="../GeoJSON/Feature.html">Feature</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/FeatureCollection" data-name="geojson::featurecollection">
+      <a href="../GeoJSON/FeatureCollection.html">FeatureCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/GeometryCollection" data-name="geojson::geometrycollection">
+      <a href="../GeoJSON/GeometryCollection.html">GeometryCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/LineString" data-name="geojson::linestring">
+      <a href="../GeoJSON/LineString.html">LineString</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/MultiLineString" data-name="geojson::multilinestring">
+      <a href="../GeoJSON/MultiLineString.html">MultiLineString</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/MultiPoint" data-name="geojson::multipoint">
+      <a href="../GeoJSON/MultiPoint.html">MultiPoint</a>
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/MultiPolygon" data-name="geojson::multipolygon">
+      <a href="../GeoJSON/MultiPolygon.html">MultiPolygon</a>
+      
+    </li>
+  
+  <li class="parent " data-id="geojson/GeoJSON/Object" data-name="geojson::object">
+      <a href="../GeoJSON/Object.html">Object</a>
+      
+        <ul>
+  
+  <li class=" " data-id="geojson/GeoJSON/Object/Type" data-name="geojson::object::type">
+      <a href="../GeoJSON/Object/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="geojson/GeoJSON/Point" data-name="geojson::point">
+      <a href="../GeoJSON/Point.html">Point</a>
+      
+    </li>
+  
+  <li class=" current" data-id="geojson/GeoJSON/Polygon" data-name="geojson::polygon">
+      <a href="../GeoJSON/Polygon.html">Polygon</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">
+    class
+  </span> GeoJSON::<wbr>Polygon
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../GeoJSON/Polygon.html">GeoJSON::Polygon</a></li><li class="superclass"><a href="../GeoJSON/Object.html">GeoJSON::Object</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> is a <code>Geometry</code> representing a closed geometric figure in
+geographic space with optional holes within it.</p>
+<p>This class corresponds to the <a href="https://tools.ietf.org/html/rfc7946#section-3.1.6">GeoJSON Polygon</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      geojson/polygon.cr
+    
+    <br/>
+  
+
+
+
+
+
+  
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+          <div class="summary"><p>A <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> is a <code>Geometry</code> representing a closed geometric figure in geographic space with optional holes within it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28coordinates%3AArray%28Array%28Coordinates%29%29%2C%2A%2Cbbox%3Dnil%29-class-method" class="signature"><strong>.new</strong>(coordinates : Array(Array(Coordinates)), *, bbox = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> with the given <em>coordinates</em> and optional bounding box <em>bbox</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28coordinates%3AArray%28Array%28Point%29%29%2C%2A%2Cbbox%3Dnil%29-class-method" class="signature"><strong>.new</strong>(coordinates : Array(Array(Point)), *, bbox = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> with the given <em>coordinates</em> and optional bounding box <em>bbox</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28coordinates%3AArray%28Array%28Array%28Float64%29%29%29%2C%2A%2Cbbox%3Dnil%29-class-method" class="signature"><strong>.new</strong>(coordinates : Array(Array(Array(Float64))), *, bbox = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> with the given <em>coordinates</em> and optional bounding box <em>bbox</em>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+  
+
+  
+
+  
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#bbox-instance-method" class="signature"><strong>#bbox</strong></a>
+        
+          <div class="summary"><p>Calculates the bounding box for any GeoJSON object, including <code><a href="../GeoJSON/FeatureCollection.html">FeatureCollection</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#coordinates%3AArray%28Array%28Coordinates%29%29-instance-method" class="signature"><strong>#coordinates</strong> : Array(Array(Coordinates))</a>
+        
+          <div class="summary"><p>Returns this Polygon's linear ring coordinates.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type%3AString-instance-method" class="signature"><strong>#type</strong> : String</a>
+        
+          <div class="summary"><p>Gets this Polygon's GeoJSON type (&quot;Polygon&quot;)</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <div class="methods-inherited">
+    
+      
+
+  <h3>Instance methods inherited from class <code><a href="../GeoJSON/Object.html">GeoJSON::Object</a></code></h3>
+  
+  
+    <a href="../GeoJSON/Object.html#bbox-instance-method" class="tooltip">
+      <span>bbox</span>
+    bbox</a>, 
+    
+  
+    <a href="../GeoJSON/Object.html#type%3AString-instance-method" class="tooltip">
+      <span>type : String</span>
+    type</a>
+    
+  
+
+
+      
+
+  <h3>Constructor methods inherited from class <code><a href="../GeoJSON/Object.html">GeoJSON::Object</a></code></h3>
+  
+  
+    <a href="../GeoJSON/Object.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
+      <span>new(pull : JSON::PullParser)<br/>new(*, __pull_for_json_serializable pull : JSON::PullParser)</span>
+    new</a>
+    
+  
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+  </div>
+
+  
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> is a <code>Geometry</code> representing a closed geometric figure in
+geographic space with optional holes within it.</p>
+<p>This class corresponds to the <a href="https://tools.ietf.org/html/rfc7946#section-3.1.6">GeoJSON Polygon</a>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(coordinates:Array(Array(Coordinates)),*,bbox=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(coordinates : Array(Array(<a href="../GeoJSON/Coordinates.html">Coordinates</a>)), *, bbox = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28coordinates%3AArray%28Array%28Coordinates%29%29%2C%2A%2Cbbox%3Dnil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> with the given <em>coordinates</em> and optional bounding
+box <em>bbox</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(coordinates:Array(Array(Point)),*,bbox=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(coordinates : Array(Array(<a href="../GeoJSON/Point.html">Point</a>)), *, bbox = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28coordinates%3AArray%28Array%28Point%29%29%2C%2A%2Cbbox%3Dnil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> with the given <em>coordinates</em> and optional bounding
+box <em>bbox</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(coordinates:Array(Array(Array(Float64))),*,bbox=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(coordinates : Array(Array(Array(Float64))), *, bbox = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28coordinates%3AArray%28Array%28Array%28Float64%29%29%29%2C%2A%2Cbbox%3Dnil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new <code><a href="../GeoJSON/Polygon.html">Polygon</a></code> with the given <em>coordinates</em> and optional bounding
+box <em>bbox</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+  
+
+  
+
+  
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="bbox-instance-method">
+      <div class="signature">
+        
+        def <strong>bbox</strong>
+
+        <a class="method-permalink" href="#bbox-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../GeoJSON/Object.html">GeoJSON::Object</a>
+            </div>
+          
+          <p>Calculates the bounding box for any GeoJSON object, including <code><a href="../GeoJSON/FeatureCollection.html">FeatureCollection</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="coordinates:Array(Array(Coordinates))-instance-method">
+      <div class="signature">
+        
+        def <strong>coordinates</strong> : Array(Array(<a href="../GeoJSON/Coordinates.html">Coordinates</a>))
+
+        <a class="method-permalink" href="#coordinates%3AArray%28Array%28Coordinates%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns this Polygon's linear ring coordinates.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type:String-instance-method">
+      <div class="signature">
+        
+        def <strong>type</strong> : String
+
+        <a class="method-permalink" href="#type%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets this Polygon's GeoJSON type (&quot;Polygon&quot;)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+</div>
+
+</body>
+</html>

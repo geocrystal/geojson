@@ -16,7 +16,7 @@ module GeoJSON
     getter properties : Hash(String, JSON::Any::Type)?
 
     # Gets this Feature's id.
-    getter id : String | Int32 | Nil
+    getter id : String | Int32?
 
     # Creates a new `Feature` with the given *geometry* and optional
     # *properties*, *id*, and bounding box *bbox*.
